@@ -1,12 +1,21 @@
 {
-  "name": "code-challenges",
+  "name": "data-structures-and-algorithms",
   "version": "1.0.0",
-  "description": "Part of growing as a programmer is to practice, practice, practice. Throughout this course, you will complete a set of daily code challenges. Each set will contain up to ten problems.",
-  "main": "challenges-08.test.js",
+  "description": "Data Structures, Algorithms, Code Challenges",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "get-challenge": "`which bash` ./code-challenges/bin/get-challenge.sh",
+    "test": "jest --verbose --coverage",
+    "lint": "eslint '**/*.js'"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "eslint": "^7.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.0.1",
+    "mustache": "^4.0.1",
+    "supertest": "^4.0.2"
+  }
 }
