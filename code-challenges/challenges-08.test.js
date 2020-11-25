@@ -193,7 +193,6 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
-
   let arr2= arr.filter(val => !val.children);
     return arr2;
 };
