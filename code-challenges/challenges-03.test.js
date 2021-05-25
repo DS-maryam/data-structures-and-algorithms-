@@ -1,491 +1,277 @@
 'use strict';
 
-// to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
-const cheerio = require('cheerio');
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
-
-Write a function named changeAllClassNames that uses jQuery to select all each li and add a class of "fruit";
-
+Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array. Return the new array.
 ------------------------------------------------------------------------------------------------ */
-let $ = createSnippetWithJQuery(`
-<ul id="fruits">
-  <li class="apple">Apple</li>
-  <li class="orange">Orange</li>
-  <li>Pear</li>
-</ul>
-`);
 
-const changeAllClassNames = () => {
-  // Solution code here...
-  $('li').addClass('fruit');
+const addTwo = (arr) => {
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
-
-Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, highest to smallest.
+Write a function named typeNum that, given an array as input, uses filter to return an array containing only the numbers.
+For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const sortBackwards = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a > b) {
-      return -1;
-    }
-    else if (a < b) {
-      return 1;
-    }
-    else {
-      return 0;
-    }
-  });
+const typeNum = (arr) => {
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
-
-Write a function named alphabetize that takes in an array of strings and returns the same array with the strings sorted alphabetically.
-
-In this alphabetization, capital letters come before lower case letters.
-
-For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
+Write a function named containsAnd that, given an array of strings as input, uses filter to return an array containing only strings that contain 'and' within the string.
+For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetize = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a > b) {
-      return 1;
-    }
-    else if (a < b) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
-  });
+const containsAnd = (arr) => {
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
-
-Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
+Write a function named oddValues that, given an array of integers as input, uses filter to return an array containing only the odd integers.
+For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const sortByLength = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a.length > b.length) {
-      return 1;
-    } else if (a.length < b.length) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
-  })
+const oddValues = (arr) => {
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 - Stretch Goal
-
-Write a function named alphabetizeBetter that takes in an array of strings and returns the same array, with the strings sorted alphabetically. Capitalization should not change the sort order of two strings.
-
-For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
+CHALLENGE 5
+Write a function named notInFirstArray that, given two arrays as input, uses filter to return an array of all the elements in the second array that are not included in the first array.
+For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetizeBetter = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a.toUpperCase() > b.toUpperCase()) {
-      return 1;
-    }
-    else if (a.toUpperCase() < b.toUpperCase()) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
-  });
-
+const notInFirstArray = (forbiddenValues, arr) => {
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
-
-Write a function named sortByPrice that takes in an array of objects, each of which has a 'price' property, and sorts those objects by price, lowest to highest, returning the same array.
-
-Here is an example of the input:
-[
-  {name: 'Sweatshirt', price: 45},
-  {name: 'Bookmark', price: 2.50},
-  {name: 'Tote bag', price: 15}
-];
+Write a function named getBaseStatGreaterThan that, given the snorlaxData, below, and an integer as input, uses filter to return an array containing all stats with a baseStat greater than the integer.
+For example, getBaseStatGreaterThan(snorlaxData.stats, 50) will return an array containing the 'special-defense' and 'special-attack' objects.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a.price > b.price) {
-      return 1;
-    }
-    else if (a.price < b.price) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
-  });
+const snorlaxData = {
+  stats: [
+    {
+      stat: {
+        url: 'https://pokeapi.co/api/v2/stat/6/',
+        name: 'speed',
+      },
+      effort: 5,
+      baseStat: 30,
+    },
+    {
+      stat: {
+        url: 'https://pokeapi.co/api/v2/stat/5/',
+        name: 'special-defense',
+      },
+      effort: 2,
+      baseStat: 110,
+    },
+    {
+      stat: {
+        url: 'https://pokeapi.co/api/v2/stat/4/',
+        name: 'special-attack',
+      },
+      effort: 9,
+      baseStat: 65,
+    },
+  ],
+  name: 'snorlax',
+  weight: 4600,
+};
+
+const getBaseStatGreaterThan = (arr, minBaseStat) => {
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
-
-Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers by their length.
-
-For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
+Write a function named getStatName that is an extension of your getBaseStatGreaterThan function from challenge 7. For this function, extend your solution from challenge 7 to only return the name of the stat, rather than the entire stat object.
+For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a.toString().length > b.toString().length) {
-      return 1;
-    }
-    else if (a.toString().length < b.toString().length) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
-  });
-
+const getStatName = (arr, minBaseStat) => {
+ 
 };
 
-/*-----------------------------------------------------------------------------------------------
+/* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
-
-Write a function named sortPeople that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names. Do not worry about capitalization or first names.
+Write a function named getCharactersWithoutChildren that, given the array of characters, below, uses filter to return an array of all characters without children.
 ------------------------------------------------------------------------------------------------ */
 
-function Person(firstName, lastName, age) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.age = age;
-}
-
-const people = [
-  new Person('Wes', 'Washington', 25),
-  new Person('Casey', 'Codefellow', 38),
-  new Person('Stan', 'Seattle', 67),
+const characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark',
+  },
+  {
+    name: 'Jon',
+    spouse: 'Lysa',
+    children: ['Robin'],
+    house: 'Arryn',
+  },
+  {
+    name: 'Cersei',
+    spouse: 'Robert',
+    children: ['Joffrey', 'Myrcella', 'Tommen'],
+    house: 'Lannister',
+  },
+  {
+    name: 'Daenarys',
+    spouse: 'Khal Drogo',
+    children: ['Drogon', 'Rhaegal', 'Viserion'],
+    house: 'Targaryen',
+  },
+  {
+    name: 'Mace',
+    spouse: 'Alerie',
+    children: ['Margaery', 'Loras'],
+    house: 'Tyrell',
+  },
+  {
+    name: 'Sansa',
+    spouse: 'Tyrion',
+    house: 'Stark',
+  },
+  {
+    name: 'Jon',
+    spouse: null,
+    house: 'Snow',
+  },
 ];
 
-const sortPeople = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if (a.lastName.toUpperCase() > b.lastName.toUpperCase()) {
-      return 1;
-    }
-    else if (a.lastName.toUpperCase() < b.lastName.toUpperCase()) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
-  });
-
+const getCharactersWithoutChildren = (arr) => {
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
-
-Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names.
-
-If two people share the same last name, alphabetize on their first name.
-
-If two people have the same full name, the younger one should come first. Do not worry about capitalization.
+Write a function named evenOddNumericValues that, given an array as input, uses filter to remove any non-numeric values, then uses map to generate a new array containing the string 'even' or 'odd', depending on the original value.
+For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 'odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
-
-  return arr.sort((a, b) => {
-    if(a.lastName !== b.lastName){
-      if(a.lastName.toLowerCase() > b.lastName.toLowerCase()){
-        return 1;
-      } else {
-        return -1;
-      }
-    } else if(`${a.firstName.toLowerCase()} ${a.lastName.toLowerCase()}` !== `${b.firstName.toLowerCase()} ${b.lastName.toLowerCase()}`){
-      if(a.firstName.toLowerCase() > b.firstName.toLowerCase()){
-        return 1;
-      } else {
-        return -1;
-      }
-    }
-    else{
-      if(a.age > b.age){
-        return 1;
-      } else {
-        return -1;
-      }
-    }
-
-  });
-
-
-
-};
-
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 10 - Stretch Goal
-
-Write a function named sortMeetingsByDay that takes in an array of objects, each of which represents a meeting happening a particular day of the week, with a particular start time and end time.
-
-Sort the meetings by the day on which they happen, Monday-Friday. It does not matter which order meetings come in on a particular day. For example, if there are two meetings on Monday, it does not matter which comes first.
------------------------------------------------------------------------------------------------- */
-
-function Meeting(dayOfWeek, start, end) {
-  this.dayOfWeek = dayOfWeek;
-  this.start = start;
-  this.end = end;
-}
-const meetings = [
-  new Meeting('Monday', '0900', '1000'),
-  new Meeting('Wednesday', '1300', '1500'),
-  new Meeting('Tuesday', '1145', '1315'),
-  new Meeting('Wednesday', '0930', '1000'),
-  new Meeting('Monday', '0900', '0945'),
-  new Meeting('Friday', '1200', '1345'),
-];
-
-const sortMeetingsByDay = (arr) => {
+const evenOddNumericValues = (arr) => {
   // Solution code here...
-  return arr.sort((a,b) => {
-    if (a.dayOfWeek === 'Monday') {
-      return -1;
-    }
-
-    else if (b.dayOfWeek === 'Monday') {
-      return 1;
-    }
-    if (a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Wednesday') {
-      return -1;
-    }
-    else if (b.dayOfWeek === 'Tuesday' && a.dayOfWeek === 'Wednesday'){
-      return 1;
-    }
-    if (a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Thursday') {
-      return -1;
-    }
-    else if (b.dayOfWeek === 'Wednesday' && a.dayOfWeek === 'Thursday') {
-      return 1;
-    }
-    if (a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Friday') {
-      return -1;
-    }
-    else if (b.dayOfWeek === 'Thursday' && a.dayOfWeek === 'Friday') {
-      return 1;
-    }
-  });
-};
-
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 11 - Stretch Goal
-
-This challenge should use the array of meetings from challenge 9, above.
-
-Sort the meetings in the order that they start. If two meetings start at the same time on the same day, the shorter meeting should come first.
-
-You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
------------------------------------------------------------------------------------------------- */
-
-const sortSchedule = (arr) => {
-  // Solution code here...
-  return arr.sort((a, b) => {
-    if(a.dayOfWeek === b.dayOfWeek) {
-      if (a.start > b.start) {
-        return 1;
-      } else if (a.start < b.start) {
-        return -1;
-      } else {
-        if (a.end > b.end) {
-          return 1;
-        } else if (a.end < b.end) {
-          return -1;
-        }
-      }
-    } else {
-      return 0;
-    }
-  });
-};
-
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 12 - Stretch Goal
-
-Without altering the html, write a function named addPearClass that uses jQuery to add a class of "pear" to the third li.
------------------------------------------------------------------------------------------------- */
-$ = createSnippetWithJQuery(`
-<ul id="fruits">
-  <li class="apple">Apple</li>
-  <li class="orange">Orange</li>
-  <li>Pear</li>
-</ul>
-`);
-
-const addPearClass = () => {
-  // Solution code here...
-  $('#fruits li').eq(2).addClass('pear');
 };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
-
 All the code below will verify that your functions are working to solve the challenges.
-
 DO NOT CHANGE any of the below code.
-
-Run your tests from the console: jest challenges-03.test.js
+Run your tests from the console: jest challenges-08.test.js
 ------------------------------------------------------------------------------------------------ */
 
-
 describe('Testing challenge 1', () => {
-  test('It should add a class of fruit to all the list items', () => {
-    changeAllClassNames();
-
-    expect($('li.apple').hasClass('fruit')).toBe(true);
-    expect($('li.orange').hasClass('fruit')).toBe(true);
+  test('It should add two to every value', () => {
+    expect(addTwo([1, 2, 4])).toStrictEqual([3, 4, 6]);
   });
 });
 
 describe('Testing challenge 2', () => {
-  test('It should sort high-to-low the numbers in an array', () => {
-    const nums = [3, 4, 5, 6, 7];
-    expect(sortBackwards(nums)).toStrictEqual([7, 6, 5, 4, 3]);
-    expect(sortBackwards([3, 2, 1])).toStrictEqual([3, 2, 1]);
-    expect(sortBackwards([12, 20, 3])).toStrictEqual([20, 12, 3]);
-    expect(sortBackwards([])).toStrictEqual([]);
-    expect(sortBackwards([1])).toStrictEqual([1]);
+  test('It should return an array containing only numbers', () => {
+    expect(typeNum([1, 'bob', 3])).toStrictEqual([1, 3]);
+    expect(typeNum([1, 'bob', 3]).length).toStrictEqual(2);
+    expect(typeNum(['banana', 'apples', 'cherry'])).toStrictEqual([]);
+    expect(typeNum([2, 3, 5])).toStrictEqual([2, 3, 5]);
   });
 });
 
 describe('Testing challenge 3', () => {
-  test('It should sort strings alphabetically', () => {
-    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual(['Alphabet', 'Zebra', 'alphabet', 'carrot']);
-    expect(alphabetize(['alphabet', 'Alphabet', 'carrot'])).toStrictEqual(['Alphabet', 'alphabet', 'carrot']);
-    expect(alphabetize([])).toStrictEqual([]);
+  test('It should return an array of strings containing the word and', () => {
+    expect(containsAnd(['panda', 'ran', 'and'])).toStrictEqual(['panda', 'and']);
+    expect(containsAnd(['banana', 'bob', 'xyz'])).toStrictEqual([]);
+    expect(containsAnd([])).toStrictEqual([]);
+    expect(containsAnd(['and', 'sand'])).toStrictEqual(['and', 'sand']);
   });
 });
 
 describe('Testing challenge 4', () => {
-  test('It should sort strings by length', () => {
-    const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-    expect(ans.slice(0, 2)).toStrictEqual(['Zebra', 'carrot']);
-    expect(ans.slice(2, 4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-    expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
-    expect(sortByLength(['a'])).toStrictEqual(['a']);
-    expect(sortByLength([])).toStrictEqual([]);
+  test('It should return an array containing only odd integers', () => {
+    expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 3, 5, 7, 9]);
+    expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(5);
+    expect(oddValues([2, 3, 4, 179])).toStrictEqual([3, 179]);
+    expect(oddValues([2, 4, 6, 8])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 5', () => {
-  test('It should alphabetize without regard to capitalization', () => {
-    expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual(['alert', 'Alice', 'apple', 'Average']);
-    const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-    expect(ans.slice(0, 2)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-    expect(ans.slice(2)).toStrictEqual(['carrot', 'Zebra']);
+  const firstNums = [1, 2, 3];
+  const secondNums = [1, 2, 3, 4];
+
+  const firstStrings = ['Demi', 'Gregor', 'Hound'];
+  const secondStrings = ['Gary', 'Charlotte', 'Demi', 'Gregor', 'Hound'];
+
+  test('It should return an array that includes any elements not in the first array', () => {
+    expect(notInFirstArray(firstNums, secondNums)).toStrictEqual([4]);
+    expect(notInFirstArray(firstNums, secondNums).length).toStrictEqual(1);
+  });
+
+  test('It should also work with an array of strings', () => {
+    expect(notInFirstArray(firstStrings, secondStrings)).toStrictEqual(['Gary', 'Charlotte']);
+    expect(notInFirstArray(firstStrings, secondStrings).length).toStrictEqual(2);
+  });
+
+  test('It should work with empty arrays', () => {
+    expect(notInFirstArray([], [])).toStrictEqual([]);
+    expect(notInFirstArray([], [1, 2, 3, 4, 5])).toStrictEqual([1, 2, 3, 4, 5]);
+    expect(notInFirstArray([1, 2, 3, 4, 5], [])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 6', () => {
-  test('It should sort items by their price', () => {
-    expect(sortByPrice([
-      { name: 'Sweatshirt', price: 45 },
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 }
-    ])).toStrictEqual([
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 },
-      { name: 'Sweatshirt', price: 45 },
-    ]);
-    expect(sortByPrice([{ price: 12 }, { price: 10 }])).toStrictEqual([{ price: 10 }, { price: 12 }]);
-    expect(sortByPrice([])).toStrictEqual([]);
+  test('It should return an array containing the stats that are greater than the input', () => {
+    expect(getBaseStatGreaterThan(snorlaxData.stats, 75)).toStrictEqual([{ stat: { url: 'https://pokeapi.co/api/v2/stat/5/', name: 'special-defense' }, effort: 2, baseStat: 110 }]);
+    expect(getBaseStatGreaterThan(snorlaxData.stats, 75).length).toStrictEqual(1);
+    expect(getBaseStatGreaterThan(snorlaxData.stats, 110)).toStrictEqual([]);
+  });
+  test('It should work for non-Snorlax data', () => {
+    expect(getBaseStatGreaterThan([{ baseStat: 10 }, { baseStat: -85 }, { baseStat: 0 }, { baseStat: -50 }], -60)).toStrictEqual([{ baseStat: 10 }, { baseStat: 0 }, { baseStat: -50 }]);
   });
 });
 
-describe('Testing challenge 7', () => {
-  test('It should sort numbers by their length', () => {
-    expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
-    expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
-    expect(sortNumbersByLength([1, 2, 3])).toEqual(expect.arrayContaining([1, 2, 3]));
+xdescribe('Testing challenge 7', () => {
+  test('It should return the name of the stats that exceed that maximum', () => {
+    expect(getStatName(snorlaxData.stats, 50)).toStrictEqual(['special-defense', 'special-attack']);
+    expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
+  });
+
+  test('It should return the name of the stats that exceed that maximum', () => {
+    expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
+    expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
+  });
+
+  test('It should work for non-snorlax data', () => {
+    expect(getStatName([
+      { baseStat: 10, stat: { name: 'one' } },
+      { baseStat: -85, stat: { name: 'two' } },
+      { baseStat: 0, stat: { name: 'three' } },
+      { baseStat: -50, stat: { name: 'four' } }
+    ], -60)).toStrictEqual(['one', 'three', 'four']);
   });
 });
 
-describe('Testing challenge 8', () => {
-  test('It should sort people by their last names', () => {
-    expect(sortPeople(people)).toStrictEqual([
-      new Person('Casey', 'Codefellow', 38),
-      new Person('Stan', 'Seattle', 67),
-      new Person('Wes', 'Washington', 25),
-    ]);
-    expect(sortPeople([{ lastName: 'banana' }, { lastName: 'apple' }]))
-      .toStrictEqual([{ lastName: 'apple' }, { lastName: 'banana' }]);
+xdescribe('Testing challenge 8', () => {
+  test('It should return an array containing characters who do not have children', () => {
+    expect(getCharactersWithoutChildren(characters)).toStrictEqual([{ name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' }]);
+    expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
   });
 });
 
-describe('Testing challenge 9', () => {
-  test('It should sort people with more strict ordering', () => {
-    const family = [
-      new Person('Casey', 'Codefellows', 55),
-      new Person('Casey', 'Codefellows', 37),
-      new Person('Charlie', 'Codefellows', 21),
-      new Person('Charles', 'Codefellows', 29),
-      new Person('Carol', 'Codefellow', 88),
-    ];
-    expect(sortPeopleBetter(family)).toStrictEqual([
-      new Person('Carol', 'Codefellow', 88),
-      new Person('Casey', 'Codefellows', 37),
-      new Person('Casey', 'Codefellows', 55),
-      new Person('Charles', 'Codefellows', 29),
-      new Person('Charlie', 'Codefellows', 21),
-    ]);
-    expect(sortPeopleBetter([{ firstName: 'andrew', lastName: 'apple' }, { firstName: 'andre', lastName: 'apple' }]))
-      .toStrictEqual([{ firstName: 'andre', lastName: 'apple' }, { firstName: 'andrew', lastName: 'apple' }]);
+xdescribe('Testing challenge 9', () => {
+  test('It should remove non-integers and return "even" or "odd', () => {
+    expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
+    expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);
+    expect(evenOddNumericValues(['a', 'b', 'c'])).toStrictEqual([]);
+  });
+  test('It should not accept strings that look like numbers', () => {
+    expect(evenOddNumericValues(['1', 2, 3, '4', 5, '6'])).toStrictEqual(['even', 'odd', 'odd']);
   });
 });
-
-describe('Testing challenge 10', () => {
-  test('It should sort meetings by the day on which they happen', () => {
-    const sortedMeetings = sortMeetingsByDay(meetings);
-    expect(sortedMeetings.slice(0, 2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
-    expect(sortedMeetings[2]).toStrictEqual(new Meeting('Tuesday', '1145', '1315'));
-    expect(sortedMeetings.slice(3, 5)).toEqual(expect.arrayContaining([new Meeting('Wednesday', '0930', '1000'), new Meeting('Wednesday', '1300', '1500')]));
-    expect(sortedMeetings[5]).toStrictEqual(new Meeting('Friday', '1200', '1345'));
-  });
-});
-
-describe('Testing challenge 11', () => {
-  test('It should sort meetings by when they happen', () => {
-    expect(sortSchedule(meetings)).toStrictEqual([
-      new Meeting('Monday', '0900', '0945'),
-      new Meeting('Monday', '0900', '1000'),
-      new Meeting('Tuesday', '1145', '1315'),
-      new Meeting('Wednesday', '0930', '1000'),
-      new Meeting('Wednesday', '1300', '1500'),
-      new Meeting('Friday', '1200', '1345'),
-    ]);
-  });
-});
-
-describe('Testing challenge 12', () => {
-  test('It should add a class of pear to the thrid li', () => {
-    addPearClass();
-    expect($('li:nth-child(3)').hasClass('pear')).toBe(true);
-  });
-});
-
-function createSnippetWithJQuery(html) {
-  return cheerio.load(html);
-}
