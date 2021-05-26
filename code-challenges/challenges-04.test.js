@@ -6,25 +6,64 @@ Write a function named addAnimal that takes in array of animals (strings) and so
 This function should first create a new array. Then iterate over the input array and modify each value based on the callback function provided.
 Push each updated animal string into the new array. Return the new array.
 HINT: Look at the tests to see how the callback functions are used.
+
+
+describe('Testing challenge 1', () => {
+  test('It should return an array of uppercase animal names', () => {
+    const arr = ['BeAr', 'lIon'];
+    expect(updateAnimal(arr, upper)[0]).toStrictEqual('BEAR');
+    expect( (arr, upper)[1]).toStrictEqual('LION');
+  });
+  test('It should return an array of lowercase animal names', () => {
+    const arr = ['BeAr', 'lIon'];
+    expect(updateAnimal(arr, lower)[0]).toStrictEqual('bear');
+    expect(updateAnimal(arr, lower)[1]).toStrictEqual('lion');
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 function upper(str) {
+  return str.toUpperCase();
 }
 
 function lower(str) {
+  return str.toLowerCase();
 }
 
 const updateAnimal = (arr, callback) => {
- 
+  let newArr=[];
+  arr.forEach(item=>{
+  newArr.push(callback(item));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 Write a function called sortNames that takes an array of names and sorts them alphabetically. Capital letters should come before lowercase letters.
 For example: 'Cat' would come before 'apple'
+
+
+describe('Testing challenge 2', () => {
+  test('It should return an array of names sorted alphabetically', () => {
+    expect(sortNames(['able', 'Bob'])[0]).toStrictEqual('Bob');
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
+  arr.sort((a,b)=>{
+    if (a>b) {
+      return 1;
+    } else if (a<b) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  return arr;
 
 };
 
@@ -32,20 +71,58 @@ const sortNames = (arr) => {
 CHALLENGE 3
 Write a function called sortNumbers that takes an array of numbers and sorts them from smallest to largest.
 HINT: Beware... JS default is "Lexical" ordering.
+
+describe('Testing challenge 3', () => {
+  test('It should sort low-to-high the numbers in an array', () => {
+    expect(sortNumbers([8, 3, 2, 9, 12, 1, 115])).toStrictEqual([1, 2, 3, 8, 9, 12, 115]);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  
+  arr.sort((a,b)=>{
+if (a>b){
+  return true;
+}else if(a<b){
+  return false;
+}else{
+  return 0;
+}
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, largest to smallest.
 HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
+
+
+describe('Testing challenge 4', () => {
+  test('It should sort high-to-low the numbers in an array', () => {
+    const nums = [3, 4, 5, 6, 7];
+    expect(sortBackwards(nums)).toStrictEqual([7, 6, 5, 4, 3]);
+    expect(sortBackwards([3, 2, 1])).toStrictEqual([3, 2, 1]);
+    expect(sortBackwards([12, 20, 3])).toStrictEqual([20, 12, 3]);
+    expect(sortBackwards([])).toStrictEqual([]);
+    expect(sortBackwards([1])).toStrictEqual([1]);
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
   
+  arr.sort((a,b)=>{
+    if (a>b){
+      return false;
+    }else if(a<b){
+      return true;
+    }else{
+      return 0;
+    }
+      })
+      return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,9 +130,30 @@ CHALLENGE 5
 Write a function named alphabetize that takes in an array of strings and returns the same array with the strings sorted alphabetically.
 In this alphabetization, capital letters come before lower case letters.
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
+
+
+describe('Testing challenge 5', () => {
+  test('It should sort strings alphabetically', () => {
+    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual(['Alphabet', 'Zebra', 'alphabet', 'carrot']);
+    expect(alphabetize(['alphabet', 'Alphabet', 'carrot'])).toStrictEqual(['Alphabet', 'alphabet', 'carrot']);
+    expect(alphabetize([])).toStrictEqual([]);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
+ 
+  arr.sort((a,b)=>{
+    if (a>b){
+      return true;
+    }else if(a<b){
+      return false;
+    }else{
+      return 0;
+    }
+      })
+      return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,10 +165,36 @@ Here is an example of the input:
   {name: 'Bookmark', price: 2.50},
   {name: 'Tote bag', price: 15}
 ];
+
+describe('Testing challenge 6', () => {
+  test('It should sort items by their price', () => {
+    expect(sortByPrice([
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 }
+    ])).toStrictEqual([
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 },
+      { name: 'Sweatshirt', price: 45 },
+    ]);
+    expect(sortByPrice([{ price: 12 }, { price: 10 }])).toStrictEqual([{ price: 10 }, { price: 12 }]);
+    expect(sortByPrice([])).toStrictEqual([]);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  
+  arr.sort((a,b)=>{
+    if (a.price>b.price){
+      return true;
+    }else if(a.price <b.price){
+      return false;
+    }else{
+      return 0;
+    }
+      })
+      return arr;
+
 
 };
 
