@@ -9,18 +9,49 @@ E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond
 should convert to ["Jane Doe", "James Bond"]
 Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
+
+describe('Testing challenge 1', () => {
+  test('It should convert object to full name string', () => {
+
+    const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
+
+    expect(toLastNames(people)).toStrictEqual(['Jane Doe', 'James Bond']);
+
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
- 
+  let newArr=[];
+ newArr= people.map(element=>{
+    return element.firstName + ' '+element.lastName;
+   });
+
+
+    return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 Write a function named addValues that, given an array of numbers as input, uses reduce to add the values in the array.
+
+describe('Testing challenge 2', () => {
+  test('It should add the values of an array', () => {
+    expect(addValues([1, 2, 3, 4, 5])).toStrictEqual(15);
+    expect(addValues([])).toStrictEqual(0);
+    expect(addValues([1, 2, 3, 4, -5])).toStrictEqual(5);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
+
+  let sum = arr.reduce((acc,val)=>{
+    acc = acc + val;
+    return acc;
+  },0);
   
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,25 +61,55 @@ Write a function named addPurchases that, given an array of objects as input, us
   item: 'switch'
   purchasePrice: 399
 }
+
+describe('Testing challenge 3', () => {
+  test('It should add the purchase price', () => {
+    expect(addPurchases([{item: 'switch', purchasePrice: 399}, {item: 'toothpaste', purchasePrice: 2}])).toStrictEqual(401);
+    expect(addPurchases([])).toStrictEqual(0);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
- 
+  let newArr=[];
+  newArr=arr.reduce((acc,val)=>{
+    acc=acc+ val.purchasePrice;
+    return acc;
+  },0);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 Write a function named countNumberOfElements that, given an array as input, uses reduce to count the number of elements in the array.
 Note: You may not use the array's built-in length property.
+
+describe('Testing challenge 4', () => {
+  test('It should return the length of the array', () => {
+    expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  
+  let newArr=arr.reduce((acc)=>{
+    acc=acc+1;
+    return acc;
+  },0);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 Write a function named returnNames that, given the Star Wars data, below, uses reduce to return an array containing the names of the characters.
+
+describe('Testing challenge 5', () => {
+  test('It should return an array continaing the names of the characters', () => {
+    expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
+    expect(returnNames(starWarsData).length).toStrictEqual(5);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 let starWarsData = [{
@@ -102,18 +163,36 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  
+  let newArr=[];
+    arr.reduce((acc,value)=>{
+    acc= acc+1;
+    newArr.push(value.name);
+    return acc;
+  },0);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 Write a function named reversedString that takes in a string and returns a string with the letters in reverse order.
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
+
+describe('Testing challenge 6', () => {
+  test('It should return the string with the characters in reverse order', () => {
+    expect(reversedString('Code 301')).toStrictEqual('103 edoC');
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
- 
+
+  let newArr = str.split('').reduce((acc, val) => {
+    return val + acc;
+  });
+  return newArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
