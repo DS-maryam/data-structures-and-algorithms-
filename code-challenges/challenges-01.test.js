@@ -84,16 +84,16 @@ describe('Testing challenge 4', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  let newArr = [];
-  word.forEach(element => {
-    newArr.push(element.toUpperCase() + '!');
-  });
-
+  return word.toUpperCase()+'!';
 };
 
 const speaker = (words, callback) => {
 
-
+  let newArr=[];
+  words.forEach(item=>{
+    newArr.push(callback(item));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

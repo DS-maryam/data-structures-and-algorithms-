@@ -29,10 +29,10 @@ describe('Testing challenge 1', () => {
 
 const getNames = (arr) => {
 let newArr=[];
-arr.map((element)=>{
-newArr.push(element.name.spilt('').reverse());
-})
- return newArr;
+arr.map(element => {
+  newArr.push(element.name.split('').reduce((acc, val) => val + acc, ''));
+});
+return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

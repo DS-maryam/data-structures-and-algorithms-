@@ -32,9 +32,9 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  let newArr=[];
-  arr.forEach(item=>{
-  newArr.push(callback(item));
+  let newArr = [];
+  arr.forEach(item => {
+    newArr.push(callback(item));
   });
   return newArr;
 };
@@ -54,10 +54,10 @@ describe('Testing challenge 2', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  arr.sort((a,b)=>{
-    if (a>b) {
+  arr.sort((a, b) => {
+    if (a > b) {
       return 1;
-    } else if (a<b) {
+    } else if (a < b) {
       return -1;
     } else {
       return 0;
@@ -80,16 +80,17 @@ describe('Testing challenge 3', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  arr.sort((a,b)=>{
-if (a>b){
-  return true;
-}else if(a<b){
-  return false;
-}else{
-  return 0;
-}
-  })
-  return arr;
+  let sortedArr = arr.sort((a, b) => {
+    if (a > b) {
+      return 1;
+    } else if (a < b) {
+      return -1;
+    }
+    else {
+      return 0;
+    }
+  });
+  return sortedArr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,19 +113,19 @@ describe('Testing challenge 4', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  
-  arr.sort((a,b)=>{
-    if (a>b){
-      return false;
-    }else if(a<b){
-      return true;
-    }else{
+
+  let sortedArr = arr.sort((a, b) => {
+    if (a < b) {
+      return 1;
+    }
+    else if (a > b) {
+      return -1;
+    } else {
       return 0;
     }
-      })
-      return arr;
+  });
+  return sortedArr
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 Write a function named alphabetize that takes in an array of strings and returns the same array with the strings sorted alphabetically.
@@ -142,18 +143,8 @@ describe('Testing challenge 5', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
- 
-  arr.sort((a,b)=>{
-    if (a>b){
-      return true;
-    }else if(a<b){
-      return false;
-    }else{
-      return 0;
-    }
-      })
-      return arr;
 
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -184,20 +175,17 @@ describe('Testing challenge 6', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  arr.sort((a,b)=>{
-    if (a.price>b.price){
-      return true;
-    }else if(a.price <b.price){
-      return false;
-    }else{
+  let sortedArr = arr.sort((a, b) => {
+    if (a.price > b.price) {
+      return 1;
+    } else if (a.price < b.price) {
+      return -1;
+    } else {
       return 0;
     }
-      })
-      return arr;
-
-
+  })
+  return sortedArr
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 Write a function named alphabetizeBetter that takes in an array of strings and returns the same array, with the strings sorted alphabetically. Capitalization should not change the sort order of two strings.
