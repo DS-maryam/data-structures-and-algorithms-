@@ -3,6 +3,13 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 Write a function called sortStarWarsCharacters that sorts the characters in the starWarsPeople array by height from tallest to shortest.
+
+describe('Testing challenge 1', () => {
+  test('It should sort the star wars characters by height from tallest to shortest', () => {
+    expect(sortStarWarsCharacters(starWarsPeople)[0]['name']).toStrictEqual('Luke Skywalker');
+    expect(sortStarWarsCharacters(starWarsPeople)[2]['height']).toStrictEqual('96');
+  })
+});
 ------------------------------------------------------------------------------------------------ */
 
 let starWarsPeople = [
@@ -24,25 +31,53 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
- 
+  return starWarsArr.sort((a, b) => {
+
+    return Number(b.height) - Number(a.height);
+
+  });
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 Write a function named removeThree that takes an index and an array. The function should removes three items in the array starting with the value at the index. 
+
+
+describe('Testing challenge 2', () => {
+  test('It should return an array with three items removed', () => {
+    expect(removeThree(2, [1, 2, 3, 4, 5, 6, 7, 8])).toStrictEqual([1, 2, 6, 7, 8]);
+  });
+});
+
+describe('Testing challenge 3', () => {
+  test('It should join an array', () => {
+    expect(joinArray(['hello', '301', 'students'])).toStrictEqual('hello 301 students');
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+  arr.splice(idx, 3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 Write a function named joinArray that takes an array and joins all of the elements together in one string on a space.
+
+describe('Testing challenge 3', () => {
+  test('It should join an array', () => {
+    expect(joinArray(['hello', '301', 'students'])).toStrictEqual('hello 301 students');
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
   // Solution code here...
+ return arr.join(' ')
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,11 +87,24 @@ As you sharpen the pencil, the string will become shorter and shorter, starting 
 Your function should use slice within a loop and return an array of each successive string result from losing letters to the sharpener, until nothing is left.
 For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
+
+
+describe('Testing challenge 4', () => {
+  test('It should return a list of shortening words', () => {
+    expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
+    expect(howMuchPencil('Welcome').length).toStrictEqual(8);
+    expect(howMuchPencil('')).toStrictEqual(['']);
+    expect(howMuchPencil('abc')).toStrictEqual(['abc', 'bc', 'c', '']);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for(let f=0; f<str.length+1; f++){
+    result.push(str.slice(f));
+  }
   return result;
 };
 
@@ -68,7 +116,11 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+
+return arr.split('')
+
 };
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,6 +163,14 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.map(element => {
+    let remove = element.slice(element.indexOf(' ') + 1);
+
+    let item = remove.slice(remove.indexOf(' ') + 1);
+    result.push(item);
+  });
+
+
   return result;
 };
 
