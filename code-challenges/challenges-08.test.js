@@ -87,15 +87,11 @@ describe('Testing challenge 2', () => {
 (/[a-zA-Z]/).test(char)
 ------------------------------------------------------------------------------------------------ */
 
-const containsW = (str) => {
-  // Solution code here...
-  let pattern = /w/g;
-  let reg = str.match(pattern);
-  if (reg === null) {
-    return false;
-  }
+  const containsW = (str) => {
+      // Solution code here...  
+    return /w/.test(str)
+  };
 
-};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
