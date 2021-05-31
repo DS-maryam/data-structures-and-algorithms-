@@ -10,6 +10,14 @@ describe('Testing challenge 1', () => {
     expect(sortByChildren(characters)[0].children.length).toStrictEqual(0);
   });
 });
+
+
+describe('Testing challenge 1', () => {
+  test('It should sort the characters by number of children', () => {
+    expect(sortByChildren(characters)[0].name).toStrictEqual('Euron');
+    expect(sortByChildren(characters)[0].children.length).toStrictEqual(0);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 let characters = [
   {
@@ -58,7 +66,8 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
- 
+  return charArray.sort((a, b) => a.children.length - b.children.length);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,6 +89,12 @@ describe('Testing challenge 2', () => {
 
 const containsW = (str) => {
   // Solution code here...
+  let pattern = /w/g;
+  let reg = str.match(pattern);
+  if (reg === null) {
+    return false;
+  }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -107,6 +122,11 @@ describe('Testing challenge 3', () => {
 
 const isNum = (input) => {
   // Solution code here...
+
+  let pattern = /[0-9]/g;
+  let element = pattern.test(input);
+  return element;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,6 +147,9 @@ describe('Testing challenge 4', () => {
 
 const containsWorld = (input) => {
   // Solution code here...
+  let pattern = /world/g;
+  let element = pattern.test(input);
+  return element;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +169,10 @@ describe('Testing challenge 5', () => {
 
 const isCapitalized = (str) => {
   // Solution code here...
- 
+  let pattern = /^[A-Z]/;
+  let newArr = str.split(' ').filter(element => pattern.test(element));
+  let newArr2 = newArr.map(element => element.replace(/\W/g, ''));
+  return newArr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -181,6 +207,14 @@ function allLetter(inputtxt)
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let pattern = /^[A-J]\w/;
+  let newArr = [];
+  arr.map(element => {
+    if (pattern.test(element)) {
+      newArr.push(element);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -287,7 +321,7 @@ describe('Testing challenge 5', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
-    expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
+    expect(capitalResult).toStrictEqual(['We', 'Return', 'Words', 'With', 'Letter']);
     expect(capitalResult.length).toStrictEqual(5);
 
     expect(isCapitalized('Given by our hand in the meadow that is called Runnymede, between Windsor and Staines, on the fifteenth day of June in the seventeenth year of our reign (i.e. 1215: the new regnal year began on 28 May).')).toStrictEqual(['Given', 'Runnymede', 'Windsor', 'Staines', 'June', 'May']);
@@ -334,7 +368,7 @@ xdescribe('Testing challenge 8', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
-    expect(noPunctuation(lorem)).toStrictEqual([ 'Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ' ]);
+    expect(noPunctuation(lorem)).toStrictEqual(['Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ']);
     expect(noPunctuation(lorem).length).toStrictEqual(23);
     expect(noPunctuation('Given by our hand in the meadow that is called Runnymede, between Windsor and Staines, on the fifteenth day of June in the seventeenth year of our reign (i.e. 1215: the new regnal year began on 28 May).')).toEqual(expect.arrayContaining(['Given ', 'by ', 'our ', 'hand ', 'in ', 'the ', 'meadow ', 'that ', 'is ', 'called ', 'between ', 'Windsor ', 'and ', 'on ', 'the ', 'fifteenth ', 'day ', 'of ', 'June ', 'in ', 'the ', 'seventeenth ', 'year ', 'of ', 'our ', 'reign ', 'the ', 'new ', 'regnal ', 'year ', 'began ', 'on ', '28 ']));
   });
