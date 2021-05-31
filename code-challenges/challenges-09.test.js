@@ -18,6 +18,12 @@ console.log(Math.max(1, 3, 2));
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
+  return arr.reduce((value2, value) => {
+    if (value > value2) {
+      value2 = value;
+    }
+    return value2;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,6 +44,8 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  let newObj = Object.keys(obj);
+  return newObj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,6 +63,14 @@ xdescribe('Testing challenge 3', () => {
 
 const checkValues = (obj, value) => {
   // Solution code here...
+  for (let element in obj) {
+    if (obj[element] === value) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +103,11 @@ Object.entries()
 const updateNumbers = (obj) => {
   // Solution code here...
  
+  for (let element in obj) {
+    return `${element}: ${obj[element]}`;
+  }
 }
+
 
 
 
@@ -148,7 +168,10 @@ const characters = [
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
- 
+  arr.map(element => {
+    houses.push(element.house);
+  });
+  return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -170,6 +193,14 @@ describe('Testing challenge 6', () => {
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  let newValue = false;
+  arr.forEach(element => {
+    let newArr = Object.values(element);
+    if (newArr[0] === character && typeof newArr[2] === 'object') {
+      newValue = true;
+    }
+  });
+  return newValue;
 };
 
 /* ------------------------------------------------------------------------------------------------

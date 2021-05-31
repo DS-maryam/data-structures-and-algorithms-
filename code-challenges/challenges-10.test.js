@@ -13,6 +13,8 @@ describe('Testing challenge 1', () => {
 
 function returnTen(str){
   // Solution code here...
+    return str.split('').slice(str.length - 10);
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,6 +60,13 @@ describe('Testing challenge 3', () => {
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let sum = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      sum = sum + matrix[i][j];
+    }
+  }
+  return sum;
   
 };
 
@@ -87,7 +96,23 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let mySumArray = [];
+  let count = 0;
+  for (let i = 0; i < 1; i++) {
+    let lastIndex = stores.length;
 
+    for (let j = 0; j < stores[i].length; j++) {
+      let firstIndex = 0;
+      let sumValue = 0;
+      while (firstIndex < lastIndex) {
+        sumValue = sumValue + stores[firstIndex][count];
+        firstIndex++;
+      }
+      mySumArray.push(sumValue);
+      count++;
+    }
+  }
+  return mySumArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +143,13 @@ describe('Testing challenge 5', () => {
 
 const salesData = (hours, data) => {
   // Solution code here...
- 
+  let sumObj = [];
+  hours.forEach(element => {
+    let firstIndex = hours.indexOf(element);
+    sumObj.push({ sales: `${data[firstIndex]} cookies`, time: hours[firstIndex] });
+
+  });
+  return sumObj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,6 +179,17 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let value = 0;
+  arr.map(element => {
+    if (element.store ==='Pet store'){
+      element.items.map(element2=>{
+        if (element2.name === 'Treats') {
+          value = value + element2.quantity;
+        }
+      })
+    }
+  });
+  return value
 };
 
 /* ------------------------------------------------------------------------------------------------
