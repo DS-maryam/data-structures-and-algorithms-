@@ -37,7 +37,8 @@ describe('Testing challenge 2', () => {
 });
 Object.keys() 
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -102,7 +103,7 @@ Object.entries()
 
 const updateNumbers = (obj) => {
   // Solution code here...
- 
+
   for (let element in obj) {
     return `${element}: ${obj[element]}`;
   }
@@ -192,17 +193,16 @@ describe('Testing challenge 6', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-  let newValue = false;
-  arr.forEach(element => {
-    let newArr = Object.values(element);
-    if (newArr[0] === character && typeof newArr[2] === 'object') {
-      newValue = true;
+  // Solution code here...  
+  let test = false;
+  let arr2 = Object.values(arr);
+  arr2.forEach(item => {
+    if (item.name === character && item.children) {
+      test = true;
     }
   });
-  return newValue;
+  return test;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 4, but uses the data's entries instead of its values.
@@ -232,7 +232,7 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
-  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -250,7 +250,7 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 const houseSurvivors = (arr) => {
   const survivors = [];
   // Solution code here...
- 
+
 };
 
 /* ------------------------------------------------------------------------------------------------
